@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>UTS - TBA | Fikri Rivandi</title>
+        <!-- 👇 css code file 👇 -->
+        <link rel="stylesheet" href="./src/style/global.css" />
+    </head>
+    <body>
+        <div class="container">
+            <p class="title">Scanner Identitas Mahasiswa</p>
+            <div>
+                <p class="subtitle">Input Data</p>
+                <div class="inputCard">
+                    <div class="inputField">
+                        <label for="namaInput">Nama Mahasiswa</label>
+                        <input type="text" id="namaInput" name="namaInput" />
+                    </div>
+                    <div class="inputField">
+                        <label for="nimInput">Nomor Induk Mahasiswa</label>
+                        <input type="text" id="nimInput" name="nimInput" />
+                    </div>
+                </div>
+            </div>
+            <div class="buttonInputCard">
+                <button id="submitBtn">Scan!</button>
+                <button id="clearBtn">Bersihkan</button>
+            </div>
+            <div class="scannerCard">
+                <div class="inputField">
+                    <label for="scannerInput">Scanner</label>
+                    <input
+                        type="text"
+                        id="scannerInput"
+                        name="scannerInput"
+                        class="scannerForm"
+                        maxlength="1"
+                        disabled
+                    />
+                </div>
+            </div>
+            <div class="statusField" id="statusFieldScan">
+                Status :
+                <span class="statusText unconfirm" id="statusScan"
+                    >Diterima!</span
+                >
+            </div>
+            <div>
+                <p class="subtitle">Output Data</p>
+                <div class="outputCard">
+                    <div class="inputField">
+                        <label for="namaOutput">Nama Mahasiswa</label>
+                        <input
+                            type="text"
+                            id="namaOutput"
+                            name="namaOutput"
+                            disabled
+                        />
+                    </div>
+                    <div class="inputField">
+                        <label for="nimOutput">Nomor Induk Mahasiswa</label>
+                        <input
+                            type="text"
+                            id="nimOutput"
+                            name="nimOutput"
+                            disabled
+                        />
+                    </div>
+                </div>
+                <div class="outputStatusCard">
+                    <div class="statusField" id="statusFieldNama">
+                        Status :
+                        <span class="statusText unconfirm" id="statusNama"
+                            >Diterima!</span
+                        >
+                    </div>
+                    <div class="statusField" id="statusFieldNim">
+                        Status :
+                        <span class="statusText unconfirm" id="statusNim"
+                            >Diterima!</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 👇 javascript code file 👇 -->
+        <script src="./src/js/index.js"></script>
+    </body>
+</html>

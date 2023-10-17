@@ -1,0 +1,163 @@
+/*? global clearing */
+*,
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    display: block;
+    border: 1px solid #aaa;
+    padding: 0.4rem 0.5rem;
+    border-radius: 6px;
+    outline: none;
+    margin: 0.1rem 0.5rem;
+}
+
+input:focus {
+    border: 1px solid #555;
+    color: black;
+}
+
+label {
+    font-size: 0.7rem;
+}
+
+button {
+    padding: 0.3rem 0.6rem;
+    width: 6rem;
+    border-radius: 50px;
+    border: 1px solid #ddd;
+    margin: 0 0.2rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+    min-width: 100px;
+    min-height: 100px;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 1.6rem;
+    padding: 0.6rem 1.8rem;
+    border-radius: 8px;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.4rem 1.2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    max-width: fit-content;
+    margin-top: 1.5rem;
+    margin-left: 1.2rem;
+    margin-bottom: -0.5rem;
+}
+
+.inputCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.buttonInputCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 0 1rem;
+    /* margin-bottom: 1rem; */
+}
+
+.scannerCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.outputCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.outputStatusCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0 2.5rem;
+}
+
+.inputField {
+    margin: 0 0.25rem;
+}
+
+#scannerInput {
+    max-width: 2rem;
+    max-height: 2rem;
+    cursor: not-allowed;
+    text-align: center;
+}
+
+#namaOutput,
+#nimOutput {
+    cursor: not-allowed;
+}
+
+#submitBtn {
+    background-color: rgb(10, 203, 106);
+    color: white;
+}
+
+#clearBtn {
+    background-color: crimson;
+    color: white;
+}
+
+.statusField {
+    font-size: 0.8rem;
+    margin-top: -0.75rem;
+    display: none;
+}
+
+.statusField .confirm {
+    color: rgb(10, 203, 106);
+}
+
+.statusField .unconfirm {
+    color: crimson;
+}
