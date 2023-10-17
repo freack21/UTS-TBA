@@ -70,17 +70,30 @@ const chars = [
 ];
 const allChars = [...numbers, ...chars];
 const defaultSleep = 60;
+let isProcessing = false;
 
 nimInput.oninput = () => {
-    const value = nimInput.value;
-    if (!numbers.includes(value[value.length - 1])) {
-        nimInput.value = value.substr(0, value.length - 1);
-    }
+    // const value = nimInput.value;
+    // if (!numbers.includes(value[value.length - 1])) {
+    //     nimInput.value = value.substr(0, value.length - 1);
+    // }
     statusFieldNama.style.display = "none";
     statusFieldNim.style.display = "none";
 };
 
 submitBtn.onclick = async () => await scan();
+clearBtn.onclick = () => {
+    if (isProcessing) return;
+    statusFieldNama.style.display = "none";
+    statusFieldNim.style.display = "none";
+    statusFieldScan.style.display = "none";
+    nimInput.value =
+        namaInput.value =
+        namaOutput.value =
+        nimOutput.value =
+        scannerInput.value =
+            "";
+};
 nimInput.onkeyup = namaInput.onkeyup = async (e) => {
     if (e.keyCode == 13) {
         await scan();
@@ -95,6 +108,7 @@ namaInput.onchange = () => {
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
 async function scan() {
+    isProcessing = true;
     const valueNama = namaInput.value;
     const valueNim = nimInput.value;
 
@@ -125,9 +139,15 @@ async function scan() {
         scannerInput.value = "";
 
         statusFieldNama.style.display = "block";
-        statusNama.classList.add("confirm");
-        statusNama.classList.remove("unconfirm");
-        statusNama.innerText = " Nama dikenali!";
+        if (namaInput.value == namaOutput.value) {
+            statusNama.classList.add("confirm");
+            statusNama.classList.remove("unconfirm");
+            statusNama.innerText = " Nama dikenali!";
+        } else {
+            statusNama.classList.add("unconfirm");
+            statusNama.classList.remove("confirm");
+            statusNama.innerText = " Nama tidak dikenali!";
+        }
     }
 
     if (valueNim) {
@@ -157,8 +177,16 @@ async function scan() {
         scannerInput.value = "";
 
         statusFieldNim.style.display = "block";
-        statusNim.classList.add("confirm");
-        statusNim.classList.remove("unconfirm");
-        statusNim.innerText = " NIM dikenali!";
+        if (nimInput.value == nimOutput.value) {
+            statusNim.classList.add("confirm");
+            statusNim.classList.remove("unconfirm");
+            statusNim.innerText = " NIM dikenali!";
+        } else {
+            statusNim.classList.add("unconfirm");
+            statusNim.classList.remove("confirm");
+            statusNim.innerText = " NIM tidak dikenali!";
+        }
     }
+
+    isProcessing = false;
 }
