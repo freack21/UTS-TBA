@@ -111,11 +111,12 @@ async function scan() {
     isProcessing = true;
     const valueNama = namaInput.value;
     const valueNim = nimInput.value;
+    statusFieldNama.style.display = "none";
+    statusFieldNim.style.display = "none";
 
     if (valueNama) {
         namaOutput.value = "";
         statusFieldScan.style.display = "block";
-        statusFieldNama.style.display = "none";
         for (let i = 0; i < valueNama.length; i++) {
             for (let j = 0; j < chars.length; j++) {
                 scannerInput.value = chars[j];
@@ -142,18 +143,17 @@ async function scan() {
         if (namaInput.value == namaOutput.value) {
             statusNama.classList.add("confirm");
             statusNama.classList.remove("unconfirm");
-            statusNama.innerText = " Nama dikenali!";
+            statusNama.innerText = " Nama dikenali !";
         } else {
             statusNama.classList.add("unconfirm");
             statusNama.classList.remove("confirm");
-            statusNama.innerText = " Nama tidak dikenali!";
+            statusNama.innerText = " Nama tidak dikenali !";
         }
     }
 
     if (valueNim) {
         nimOutput.value = "";
         statusFieldScan.style.display = "block";
-        statusFieldNim.style.display = "none";
         for (let i = 0; i < valueNim.length; i++) {
             for (let j = 0; j < numbers.length; j++) {
                 scannerInput.value = numbers[j];
