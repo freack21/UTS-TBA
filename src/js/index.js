@@ -69,7 +69,7 @@ const chars = [
     "z",
 ];
 const allChars = [...numbers, ...chars];
-const defaultSleep = 60;
+const defaultSleep = 250;
 let isProcessing = false;
 
 nimInput.oninput = () => {
@@ -124,7 +124,7 @@ async function scan() {
                     statusScan.classList.add("confirm");
                     statusScan.classList.remove("unconfirm");
                     statusScan.innerText = "Diterima!";
-                    await sleep(defaultSleep * 15);
+                    await sleep(defaultSleep * 5);
                     namaOutput.value += chars[j];
                     break;
                 } else {
@@ -133,9 +133,13 @@ async function scan() {
                     statusScan.innerText = "Tidak diterima!";
                 }
                 await sleep(defaultSleep);
+                statusScan.style.display = "none";
+                scannerInput.value = "";
+                await sleep(defaultSleep);
+                statusScan.style.display = "inline";
             }
         }
-        await sleep(defaultSleep * 30);
+        await sleep(defaultSleep * 10);
         statusFieldScan.style.display = "none";
         scannerInput.value = "";
 
@@ -143,11 +147,11 @@ async function scan() {
         if (namaInput.value == namaOutput.value) {
             statusNama.classList.add("confirm");
             statusNama.classList.remove("unconfirm");
-            statusNama.innerText = " Nama dikenali !";
+            statusNama.innerText = " Nama dikenali!!";
         } else {
             statusNama.classList.add("unconfirm");
             statusNama.classList.remove("confirm");
-            statusNama.innerText = " Nama tidak dikenali !";
+            statusNama.innerText = " Nama tidak dikenali!!";
         }
     }
 
@@ -161,7 +165,7 @@ async function scan() {
                     statusScan.classList.add("confirm");
                     statusScan.classList.remove("unconfirm");
                     statusScan.innerText = "Diterima!";
-                    await sleep(defaultSleep * 15);
+                    await sleep(defaultSleep * 5);
                     nimOutput.value += numbers[j];
                     break;
                 } else {
@@ -170,9 +174,13 @@ async function scan() {
                     statusScan.innerText = "Tidak diterima!";
                 }
                 await sleep(defaultSleep);
+                statusScan.style.display = "none";
+                scannerInput.value = "";
+                await sleep(defaultSleep);
+                statusScan.style.display = "inline";
             }
         }
-        await sleep(defaultSleep * 30);
+        await sleep(defaultSleep * 10);
         statusFieldScan.style.display = "none";
         scannerInput.value = "";
 
@@ -180,11 +188,11 @@ async function scan() {
         if (nimInput.value == nimOutput.value) {
             statusNim.classList.add("confirm");
             statusNim.classList.remove("unconfirm");
-            statusNim.innerText = " NIM dikenali!";
+            statusNim.innerText = " NIM dikenali!!";
         } else {
             statusNim.classList.add("unconfirm");
             statusNim.classList.remove("confirm");
-            statusNim.innerText = " NIM tidak dikenali!";
+            statusNim.innerText = " NIM tidak dikenali!!";
         }
     }
 
