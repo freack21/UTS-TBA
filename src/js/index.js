@@ -12,9 +12,13 @@ const statusNama = document.getElementById("statusNama");
 const statusFieldNim = document.getElementById("statusFieldNim");
 const statusNim = document.getElementById("statusNim");
 
+const delayInput = document.getElementById("delayInput");
+
 const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const chars = [
+    ".",
     " ",
+    ",",
     "A",
     "B",
     "C",
@@ -69,7 +73,6 @@ const chars = [
     "z",
 ];
 const allChars = [...numbers, ...chars];
-const defaultSleep = 250;
 let isProcessing = false;
 
 nimInput.oninput = () => {
@@ -108,6 +111,7 @@ namaInput.onchange = () => {
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
 async function scan() {
+    const defaultSleep = Number(delayInput.value);
     isProcessing = true;
     const valueNama = namaInput.value;
     const valueNim = nimInput.value;
